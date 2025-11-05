@@ -10,6 +10,7 @@
       <router-link to="/catpedia" class="nav-item">CatPedia</router-link>
       <router-link to="/findplace" class="nav-item">FindPlace</router-link>
       <router-link to="/forum" class="nav-item">Forum</router-link>
+      <router-link to="/profil" class="nav-item">Profil</router-link>
     </ul>
     <div>
       <router-link to="/login" class="login-daftar">login</router-link>

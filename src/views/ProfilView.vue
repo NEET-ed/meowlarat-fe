@@ -1,5 +1,5 @@
 <template>
-    <Navbar/>
+    <NavbarLogin/>
     <div class="profile-page">
     <!-- Header Profil -->
     <div class="profile-header">
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-    import Navbar from '../components/Navbar.vue'
+    import NavbarLogin from '../components/NavbarLogin.vue';
 </script>
 
 <style scoped>

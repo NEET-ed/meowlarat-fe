@@ -5,7 +5,12 @@ import DaftarView from '@/views/DaftarView.vue'
 import LaporView from '@/views/LaporView.vue'
 import ProfilView from '@/views/ProfilView.vue'
 import AdopsiView from '@/views/AdopsiView.vue'
+<<<<<<< HEAD
 import CatpediaView from '@/views/CatpediaView.vue'
+=======
+import ForumView from '@/views/ForumView.vue'
+import DonasiView from '@/views/DonasiView.vue'
+>>>>>>> 97f241458b071ae83ca125c923630f28864a3169
 
 const routes = [
   {
@@ -39,9 +44,28 @@ const routes = [
     component: AdopsiView
   },
   {
+<<<<<<< HEAD
     path: '/catpedia',
     name: 'CatPediaView',
     component: CatpediaView
+=======
+    path: '/forum',
+    name: 'forum',
+    component: ForumView, 
+    redirect: '/forum/nutrition', // Default view
+    children: [
+      { path: 'lost-found', component: ForumView },
+      { path: 'stories', component: ForumView },
+      { path: 'nutrition', component: ForumView},
+      { path: 'health', component: ForumView},
+      { path: 'rescue', component: ForumView}
+    ]
+  },
+  {
+    path: '/donasi',
+    name: 'DonasiView',
+    component: DonasiView
+>>>>>>> 97f241458b071ae83ca125c923630f28864a3169
   }
   
   // contoh rute tambahan:

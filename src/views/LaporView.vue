@@ -110,7 +110,7 @@ function submitReport() {
 <style scoped>
 /* --- Pengaturan Global & Halaman --- */
 .lapor-page {
-  background-image: url('/background.png');
+  /* background-image: url('/background.png'); */
   background-repeat: repeat;
   min-height: 100vh; 
   padding-bottom: 50px;

@@ -5,6 +5,7 @@ import DaftarView from '@/views/DaftarView.vue'
 import LaporView from '@/views/LaporView.vue'
 import ProfilView from '@/views/ProfilView.vue'
 import AdopsiView from '@/views/AdopsiView.vue'
+import DonasiView from '@/views/DonasiView.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/adopsi',
     name: 'AdopsiView',
     component: AdopsiView
+  },
+  {
+    path: '/donasi',
+    name: 'DonasiView',
+    component: DonasiView
   }
   // contoh rute tambahan:
   // {

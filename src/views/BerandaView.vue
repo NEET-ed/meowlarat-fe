@@ -55,7 +55,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #0077c2; */
     color: #fffce8;
     padding: 69px 100px 180px;
     border-bottom-left-radius: 0px;

@@ -5,6 +5,7 @@ import DaftarView from '@/views/DaftarView.vue'
 import LaporView from '@/views/LaporView.vue'
 import ProfilView from '@/views/ProfilView.vue'
 import AdopsiView from '@/views/AdopsiView.vue'
+import CatpediaView from '@/views/CatpediaView.vue'
 import ForumView from '@/views/ForumView.vue'
 import DonasiView from '@/views/DonasiView.vue'
 
@@ -40,6 +41,11 @@ const routes = [
     component: AdopsiView
   },
   {
+    path: '/catpedia',
+    name: 'CatPediaView',
+    component: CatpediaView
+  },
+  {
     path: '/forum',
     name: 'forum',
     component: ForumView, 
@@ -57,6 +63,7 @@ const routes = [
     name: 'DonasiView',
     component: DonasiView
   }
+  
   // contoh rute tambahan:
   // {
   //   path: '/tentang',

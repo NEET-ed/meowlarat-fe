@@ -85,4 +85,13 @@
 .login-daftar:hover {
   background-color: #f0f0d8;
 }
+
+.router-link-exact-active {
+  border-bottom: 3px solid #fffce8; /* garis bawah sebagai tanda aktif */
+  padding-bottom: 4px;
+}
+
+.router-link-exact-active.nav-item {
+  color: #ffeb99; /* warna teks sedikit berbeda untuk halaman aktif */
+}
 </style>

@@ -11,6 +11,7 @@
       <router-link to="/catpedia" class="nav-item">CatPedia</router-link>
       <router-link to="/findplace" class="nav-item">FindPlace</router-link>
       <router-link to="/forum" class="nav-item">Forum</router-link>
+      <router-link to="/profil" class="nav-item">Profil</router-link>
     </ul>
 
     <!-- 🔹 Profil user -->
@@ -142,4 +143,14 @@
   background: #e0f0ff;
   color: #007ac2;
 }
+
+.router-link-exact-active {
+  border-bottom: 3px solid #fffce8; /* garis bawah sebagai tanda aktif */
+  padding-bottom: 4px;
+}
+
+.router-link-exact-active.nav-item {
+  color: #ffeb99; /* warna teks sedikit berbeda untuk halaman aktif */
+}
+
 </style>

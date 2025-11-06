@@ -5,6 +5,7 @@ import DaftarView from '@/views/DaftarView.vue'
 import LaporView from '@/views/LaporView.vue'
 import ProfilView from '@/views/ProfilView.vue'
 import AdopsiView from '@/views/AdopsiView.vue'
+import CatpediaView from '@/views/CatpediaView.vue'
 
 const routes = [
   {
@@ -36,7 +37,13 @@ const routes = [
     path: '/adopsi',
     name: 'AdopsiView',
     component: AdopsiView
+  },
+  {
+    path: '/catpedia',
+    name: 'CatPediaView',
+    component: CatpediaView
   }
+  
   // contoh rute tambahan:
   // {
   //   path: '/tentang',

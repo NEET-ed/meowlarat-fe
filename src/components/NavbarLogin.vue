@@ -11,15 +11,21 @@
       <router-link to="/catpedia" class="nav-item">CatPedia</router-link>
       <router-link to="/findplace" class="nav-item">FindPlace</router-link>
       <router-link to="/forum" class="nav-item">Forum</router-link>
-      <router-link to="/profil" class="nav-item">Profil</router-link>
     </ul>
 
-    <!-- 🔹 Bagian kanan: Nama + Foto Profil -->
+    <!-- 🔹 Profil user -->
     <div class="profile-section">
       <span class="username">Mudrik Ganteng</span>
-      <router-link to="/profil">
+
+      <div class="profile-dropdown">
         <img src="/cat.png" alt="User Profile" class="profile-avatar" />
-      </router-link>
+
+        <!-- 🔽 Dropdown muncul pas hover -->
+        <div class="dropdown-menu">
+          <router-link to="/profil" class="dropdown-item">Profil Saya</router-link>
+          <router-link to="/login" class="dropdown-item">Logout</router-link>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -65,7 +71,7 @@
   opacity: 0.7;
 }
 
-/* 🔹 Avatar profil + nama user */
+/* 🔹 Bagian profil */
 .profile-section {
   display: flex;
   align-items: center;
@@ -76,6 +82,12 @@
   font-weight: 600;
   font-size: 1rem;
   color: #fffce8;
+}
+
+/* 🔹 Avatar dan dropdown */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
 }
 
 .profile-avatar {
@@ -91,5 +103,43 @@
 .profile-avatar:hover {
   transform: scale(1.08);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* 🔽 Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  min-width: 140px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: none;
+  flex-direction: column;
+  padding: 8px 0;
+  z-index: 100;
+}
+
+/* Muncul pas hover */
+.profile-dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Item dropdown */
+.dropdown-item {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #004c80;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #e0f0ff;
+  color: #007ac2;
 }
 </style>

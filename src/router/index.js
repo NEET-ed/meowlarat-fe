@@ -4,6 +4,7 @@ import LoginView from '@/views/LoginView.vue'
 import DaftarView from '@/views/DaftarView.vue'
 import LaporView from '@/views/LaporView.vue'
 import ProfilView from '@/views/ProfilView.vue'
+import AdoptView from '@/views/AdoptView.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     name: 'ProfilView',
     component: ProfilView
   },
+  {
+    path: '/adopt',
+    name: 'AdoptView',
+    component: AdoptView
+  }
   // contoh rute tambahan:
   // {
   //   path: '/tentang',

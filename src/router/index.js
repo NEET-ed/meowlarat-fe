@@ -6,6 +6,7 @@ import LaporView from '@/views/LaporView.vue'
 import ProfilView from '@/views/ProfilView.vue'
 import AdopsiView from '@/views/AdopsiView.vue'
 import ForumView from '@/views/ForumView.vue'
+import DonasiView from '@/views/DonasiView.vue'
 
 const routes = [
   {
@@ -39,18 +40,23 @@ const routes = [
     component: AdopsiView
   },
   {
-  path: '/forum',
-  name: 'forum',
-  component: ForumView, 
-  redirect: '/forum/nutrition', // Default view
-  children: [
-    { path: 'lost-found', component: ForumView },
-    { path: 'stories', component: ForumView },
-    { path: 'nutrition', component: ForumView},
-    { path: 'health', component: ForumView},
-    { path: 'rescue', component: ForumView}
-  ]
-}
+    path: '/forum',
+    name: 'forum',
+    component: ForumView, 
+    redirect: '/forum/nutrition', // Default view
+    children: [
+      { path: 'lost-found', component: ForumView },
+      { path: 'stories', component: ForumView },
+      { path: 'nutrition', component: ForumView},
+      { path: 'health', component: ForumView},
+      { path: 'rescue', component: ForumView}
+    ]
+  },
+  {
+    path: '/donasi',
+    name: 'DonasiView',
+    component: DonasiView
+  }
   // contoh rute tambahan:
   // {
   //   path: '/tentang',

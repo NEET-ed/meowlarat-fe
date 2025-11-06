@@ -5,7 +5,7 @@
     <div class="hero-text">
       <h1>Selamat Datang</h1>
       <p>Temukan Sahabat Kucingmu di Sini</p>
-      <button class="cta">Dukung Kami!</button>
+      <router-link to="donasi" class="cta">Dukung Kami!</router-link>
     </div>
     <div class="hero-image">
       <img src="/cat.png" alt="Kucing lucu" />
@@ -73,7 +73,7 @@ body {
 
   .hero-text{
     margin-left: 30px;
-
+    margin-top: 18px;
   }
 
   .hero-text h1 {
@@ -95,6 +95,7 @@ body {
     padding: 12px 24px;
     cursor: pointer;
     font-size: 20px;
+    text-decoration: none;
   }
 
   .cta:hover {

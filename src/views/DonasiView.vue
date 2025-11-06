@@ -27,13 +27,22 @@
           >
             {{ nominal }}
           </button>
+
+          <!-- Tombol Custom -->
+          <button
+            :class="{ active: selectedNominal === 'custom' }"
+            @click="selectedNominal = 'custom'"
+          >
+            Custom
+          </button>
         </div>
 
         <input
-          type="text"
-          placeholder="Custom"
+          type="number"
+          placeholder="Masukkan nominal sendiri"
           v-model="customNominal"
           class="custom-input"
+          :disabled="selectedNominal !== 'custom'"
         />
 
         <h3>Pesan</h3>
@@ -48,7 +57,6 @@
           <img src="/cat-donasi.png" alt="kucing" />
         </div>
 
-        <!-- Kotak metode pembayaran -->
         <div class="payment-box">
           <h3>Metode pembayaran</h3>
           <div class="payment-methods">
@@ -138,32 +146,41 @@ function closePopup() {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 150px;
+  padding: 100px;
   padding-top: 60px;
   color: white;
   min-height: 90vh;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 /* -----------------------------
-   KIRI
+   BAGIAN KIRI
 ----------------------------- */
 .donasi-left {
-  width: 45%;
-  margin-left: 115px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
 }
 
 .donasi-left h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .donasi-left h3 {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .donasi-left p {
-    font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.nominal-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .nominal-buttons button,
@@ -173,9 +190,10 @@ function closePopup() {
   border: none;
   padding: 10px 18px;
   border-radius: 20px;
-  margin: 5px;
+  margin-top: 5px;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .nominal-buttons button.active {
@@ -203,23 +221,39 @@ textarea {
   resize: none;
 }
 
+.custom-input:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 /* -----------------------------
-   KANAN
+   BAGIAN KANAN
 ----------------------------- */
 .donasi-right {
-  width: 35%;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 55px;
 }
 
 .cat-image {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 250px;
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .payment-box {
@@ -265,6 +299,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .popup {
@@ -272,7 +307,8 @@ textarea {
   color: #2a79c5;
   padding: 30px;
   border-radius: 15px;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   text-align: center;
   position: relative;
 }
@@ -289,7 +325,7 @@ textarea {
 
 .bank-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 15px;
   margin-top: 20px;
 }
@@ -303,5 +339,73 @@ textarea {
 .bank-item img {
   width: 70px;
   height: auto;
+}
+
+/* -----------------------------
+   RESPONSIVE BREAKPOINTS
+----------------------------- */
+@media (max-width: 1024px) {
+  .donasi-container {
+    padding: 60px 40px;
+  }
+
+  .donasi-left h1 {
+    font-size: 2rem;
+  }
+
+  .donasi-right {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .donasi-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 30px;
+  }
+
+  .donasi-left,
+  .donasi-right {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .donasi-left h1 {
+    font-size: 2rem;
+  }
+
+  .cat-image {
+    margin: 40px 0;
+    height: 200px;
+  }
+
+  .payment-box {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .donasi-left h1 {
+    font-size: 1.6rem;
+  }
+
+  .donasi-left p {
+    font-size: 1rem;
+  }
+
+  .nominal-buttons button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .popup {
+    padding: 20px;
+  }
+
+  .bank-item img {
+    width: 50px;
+  }
 }
 </style>

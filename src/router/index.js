@@ -8,6 +8,7 @@ import AdopsiView from '@/views/AdopsiView.vue'
 import CatpediaView from '@/views/CatpediaView.vue'
 import ForumView from '@/views/ForumView.vue'
 import DonasiView from '@/views/DonasiView.vue'
+import FindPlaceView from '@/views/FindPlaceView.vue'
 import FormView from '@/views/FormView.vue'
 
 const routes = [
@@ -47,6 +48,11 @@ const routes = [
     component: CatpediaView
   },
   {
+    path: '/findplace',
+    name: 'FindPlaceView',
+    component: FindPlaceView
+  },
+  {
     path: '/forum',
     name: 'forum',
     component: ForumView, 
@@ -80,7 +86,24 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // kalau ada hash (#list-view, #donasi, dll)
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth', // biar scroll halus
+      }
+    } 
+    // kalau user pakai tombol back/forward browser
+    else if (savedPosition) {
+      return savedPosition
+    } 
+    // default: scroll ke atas
+    else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router

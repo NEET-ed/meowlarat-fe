@@ -1,27 +1,48 @@
 <template>
   <nav class="navbar">
+    <!-- Logo -->
     <div class="logo">
-      <img src="/logo.png" alt="Logo" /> <span>MeowLarat</span>
+      <img src="/logo.png" alt="Logo" />
+      <span>MeowLarat</span>
     </div>
 
-    <ul class="nav-links">
-      <router-link to="/" class="nav-item">Beranda</router-link>
-      <router-link to="/adopsi" class="nav-item">Adopsi</router-link>
-      <router-link to="/lapor" class="nav-item">Lapor</router-link>
-      <router-link to="/catpedia" class="nav-item">CatPedia</router-link>
-      <router-link to="/findplace" class="nav-item">FindPlace</router-link>
-      <router-link to="/forum" class="nav-item">Forum</router-link>
-      <router-link to="/profil" class="nav-item">Profil</router-link>
+    <!-- Tombol Hamburger -->
+    <div class="hamburger" @click="toggleMenu">
+      <div :class="{ bar: true, active: isMenuOpen }"></div>
+      <div :class="{ bar: true, active: isMenuOpen }"></div>
+      <div :class="{ bar: true, active: isMenuOpen }"></div>
+    </div>
+
+    <!-- Navigasi -->
+    <ul :class="['nav-links', { open: isMenuOpen }]">
+      <router-link to="/" class="nav-item" @click="closeMenu">Beranda</router-link>
+      <router-link to="/adopsi" class="nav-item" @click="closeMenu">Adopsi</router-link>
+      <router-link to="/lapor" class="nav-item" @click="closeMenu">Lapor</router-link>
+      <router-link to="/catpedia" class="nav-item" @click="closeMenu">CatPedia</router-link>
+      <router-link to="/findplace" class="nav-item" @click="closeMenu">FindPlace</router-link>
+      <router-link to="/forum" class="nav-item" @click="closeMenu">Forum</router-link>
+      <router-link to="/profil" class="nav-item" @click="closeMenu">Profil</router-link>
+
+      <!-- Profil pindah ke bawah nav link di mode mobile -->
+      <div class="mobile-profile" v-if="isMenuOpen">
+        <div class="profile-section">
+          <span class="username">Mudrik Ganteng</span>
+          <div class="profile-dropdown">
+            <img src="/cat.png" alt="User Profile" class="profile-avatar" />
+            <div class="dropdown-menu">
+              <router-link to="/profil" class="dropdown-item">Profil Saya</router-link>
+              <router-link to="/login" class="dropdown-item">Logout</router-link>
+            </div>
+          </div>
+        </div>
+      </div>
     </ul>
 
-    <!-- 🔹 Profil user -->
-    <div class="profile-section">
+    <!-- Profil (hanya desktop) -->
+    <div class="profile-section desktop-profile">
       <span class="username">Mudrik Ganteng</span>
-
       <div class="profile-dropdown">
         <img src="/cat.png" alt="User Profile" class="profile-avatar" />
-
-        <!-- 🔽 Dropdown muncul pas hover -->
         <div class="dropdown-menu">
           <router-link to="/profil" class="dropdown-item">Profil Saya</router-link>
           <router-link to="/login" class="dropdown-item">Logout</router-link>
@@ -31,15 +52,31 @@
   </nav>
 </template>
 
+<script setup>
+import { ref } from "vue";
+
+const isMenuOpen = ref(false);
+
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value;
+}
+
+function closeMenu() {
+  isMenuOpen.value = false;
+}
+</script>
+
 <style scoped>
+/* 🌈 NAVBAR DASAR */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  color: #fffce8;
   background: linear-gradient(to bottom, #004c80 40%, #007ac2 100%);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: #fffce8;
+  position: relative;
+  z-index: 1000;
 }
 
 .logo {
@@ -54,25 +91,26 @@
   color: #fff;
 }
 
+/* 🔹 NAV LINK */
 .nav-links {
-  list-style: none;
   display: flex;
   gap: 45px;
+  list-style: none;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .nav-item {
   color: #fffce8;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s;
 }
 
 .nav-item:hover {
   opacity: 0.7;
 }
 
-/* 🔹 Bagian profil */
+/* 🔹 PROFIL DESKTOP */
 .profile-section {
   display: flex;
   align-items: center;
@@ -85,7 +123,6 @@
   color: #fffce8;
 }
 
-/* 🔹 Avatar dan dropdown */
 .profile-dropdown {
   position: relative;
   display: inline-block;
@@ -106,7 +143,7 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* 🔽 Dropdown menu */
+/* 🔽 DROPDOWN MENU */
 .dropdown-menu {
   position: absolute;
   top: 50px;
@@ -121,21 +158,15 @@
   z-index: 100;
 }
 
-/* Muncul pas hover */
 .profile-dropdown:hover .dropdown-menu {
   display: flex;
 }
 
-/* Item dropdown */
 .dropdown-item {
   padding: 10px 15px;
   text-decoration: none;
   color: #004c80;
   font-weight: 600;
-  background: transparent;
-  border: none;
-  text-align: left;
-  cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 
@@ -144,13 +175,105 @@
   color: #007ac2;
 }
 
+/* 🔹 MENU HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 28px;
+  height: 3px;
+  background-color: #fffce8;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.bar.active:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.bar.active:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.active:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* 🌙 RESPONSIVE MODE */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+ .nav-links { 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #004c80;
+    width: 100%;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.open {
+    padding: 30px 0;
+    max-height: 600px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .desktop-profile {
+    display: none;
+  }
+
+  .mobile-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 20px;
+  }
+
+  .mobile-profile .profile-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .profile-dropdown:hover .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    display: flex;
+  }
+
+  .dropdown-menu {
+    background: transparent;
+  }
+
+  .dropdown-item {
+    color: #fffce8;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffeb99;
+  }
+}
+
+/* 🔸 Halaman aktif */
 .router-link-exact-active {
-  border-bottom: 3px solid #fffce8; /* garis bawah sebagai tanda aktif */
+  border-bottom: 3px solid #fffce8;
   padding-bottom: 4px;
+  color: #ffeb99;
 }
-
-.router-link-exact-active.nav-item {
-  color: #ffeb99; /* warna teks sedikit berbeda untuk halaman aktif */
-}
-
 </style>

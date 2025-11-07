@@ -171,7 +171,7 @@ this.selectedCat = {};
 },
 handleAdoptClick() {
     // 1. Tampilkan pesan notifikasi
-    alert("Permintaan adopsi telah diterima, silahkan cek List Kucing Anda!");
+    alert("Permintaan adopsi telah diterima, silahkan Verifikasi Adopsi!");
     
     // 2. Tutup Modal
     this.closeCatModal();

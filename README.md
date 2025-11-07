@@ -36,9 +36,6 @@ npm run dev
 ```sh
 npm run build
 ```
-Tentu, berikut adalah pembaruan file `README.md` yang menyertakan informasi cara mengakses semua halaman (routes) dalam proyek **Web-MeowLarat** Anda.
-
-File yang Diperbarui: `README.md`
 
 ````markdown
 # Web-MeowLarat

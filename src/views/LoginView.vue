@@ -2,10 +2,13 @@
   <div class="login-page">
     <div class="login-container">
       <div class="left-side">
+        <div class="mobile-title">Miaw-miaw Menunggumu Kamu!</div>
+
         <div class="logo">
           <img src="/logo.png" alt="Logo MeowLarat" />
           <h2>MeowLarat</h2>
         </div>
+
         <h1>Hello,<br />Welcome Back</h1>
 
         <form class="login-form">
@@ -45,11 +48,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .login-container {
-  background-color: #FFFFE9;
+  background-color: #ffffe9;
   display: flex;
   border-radius: 24px;
   overflow: hidden;
@@ -58,6 +61,7 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
+/* LEFT SIDE */
 .left-side {
   flex: 1;
   padding: 60px;
@@ -65,6 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .logo {
@@ -144,6 +149,7 @@ h1 {
   text-decoration: none;
 }
 
+/* RIGHT SIDE */
 .right-side {
   background-color: #f8f8d4;
   flex: 1;
@@ -154,6 +160,7 @@ h1 {
   align-items: center;
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
+  text-align: center;
 }
 
 .right-side h3 {
@@ -162,6 +169,92 @@ h1 {
 }
 
 .cat-img {
-  width: 500px;
+  width: 230px;
+}
+
+/* Judul di versi mobile (disembunyikan di desktop) */
+.mobile-title {
+  display: none;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ========================
+   RESPONSIVE DESIGN
+======================== */
+
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .login-container {
+    width: 90%;
+    height: auto;
+  }
+
+  .left-side {
+    margin-right: 50px;
+    padding: 40px;
+  }
+
+  .cat-img {
+    width: 220px;
+  }
+}
+
+/* Smartphone (≤768px) */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    background-image: url('/cat.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .right-side {
+    display: none; /* Sembunyikan sisi kanan di HP */
+  }
+
+  .left-side {
+    margin-right: 0;
+    padding: 40px 30px;
+    background-color: rgba(255, 255, 233, 0.9); /* transparan biar teks kebaca */
+    border-radius: 24px;
+  }
+
+  .mobile-title {
+    display: block; /* Tampilkan judul di atas form */
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
+
+/* Small Smartphone (≤480px) */
+@media (max-width: 480px) {
+  .left-side {
+    padding: 30px 20px;
+  }
+
+  .mobile-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .login-form input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .signin-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }
 </style>

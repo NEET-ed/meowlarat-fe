@@ -3,13 +3,13 @@
   <div class="profile-page">
     <!-- Header Profil -->
     <div class="profile-header">
-      <img class="profile-photo" src="/cat.png" alt="Foto Profil" />
+      <img class="profile-photo" :src="photo" alt="Foto Profil" />
       <div class="profile-info">
         <h2 class="name">{{ name }}</h2>
         <p class="bio">{{ bio }}</p>
         <div class="buttons">
           <button class="edit" @click="openModal">Edit Profile</button>
-          <button class="share">Share Profile</button>
+          <button class="share" @click="shareProfile">Share Profile</button>
         </div>
       </div>
       <div class="adoption-count">
@@ -37,6 +37,10 @@
       <div class="modal-content">
         <h2>Edit Profil</h2>
         <form @submit.prevent="saveProfile">
+          <label>Foto Profil</label>
+          <input type="file" accept="image/*" @change="previewImage" />
+          <img v-if="tempPhoto" :src="tempPhoto" alt="Preview" class="preview-photo" />
+
           <label>Nama</label>
           <input type="text" v-model="tempName" placeholder="Masukkan nama baru" />
 
@@ -50,6 +54,9 @@
         </form>
       </div>
     </div>
+
+    <!-- ✅ Notifikasi Share -->
+    <div v-if="showCopied" class="copy-toast">Link profil disalin!</div>
   </div>
 </template>
 
@@ -57,31 +64,61 @@
 import { ref } from 'vue';
 import NavbarLogin from '../components/NavbarLogin.vue';
 
-// Data profil
-const name = ref('Mudrik Ganteng');
-const bio = ref('This is bio. This is bio. This is bio.');
+// Data profil utama
+const name = ref('Raffie Arsy');
+const bio = ref('Saya mahasiswa ilmu komputer UPI yang menyukai hewan kucing. Salam kenal!');
+const photo = ref('/cat.png');
 
-// Data sementara untuk modal
+// Data sementara (modal)
 const tempName = ref('');
 const tempBio = ref('');
+const tempPhoto = ref('');
+let fileObjectUrl = null;
 
-// Kontrol modal
+// Kontrol modal & notifikasi
 const showModal = ref(false);
+const showCopied = ref(false);
 
+// Buka modal edit
 const openModal = () => {
   tempName.value = name.value;
   tempBio.value = bio.value;
+  tempPhoto.value = photo.value;
   showModal.value = true;
 };
 
+// Tutup modal
 const closeModal = () => {
   showModal.value = false;
 };
 
+// Preview foto baru
+const previewImage = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    if (fileObjectUrl) URL.revokeObjectURL(fileObjectUrl); // hapus preview lama
+    fileObjectUrl = URL.createObjectURL(file);
+    tempPhoto.value = fileObjectUrl;
+  }
+};
+
+// Simpan perubahan profil
 const saveProfile = () => {
   name.value = tempName.value;
   bio.value = tempBio.value;
+  photo.value = tempPhoto.value;
   closeModal();
+};
+
+// Share profil (copy link)
+const shareProfile = async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    showCopied.value = true;
+    setTimeout(() => (showCopied.value = false), 2000);
+  } catch (err) {
+    alert('Gagal menyalin link profil.');
+  }
 };
 </script>
 
@@ -101,7 +138,7 @@ const saveProfile = () => {
   align-items: center;
   justify-content: space-between;
   background-color: #005fa3;
-  padding: 20px 30px;
+  padding: 20px 60px;
   border-radius: 15px;
   margin-bottom: 30px;
   flex-wrap: wrap;
@@ -156,9 +193,9 @@ const saveProfile = () => {
   background-color: #005c9a;
 }
 
+/* === Hitung Adopsi === */
 .adoption-count {
   text-align: center;
-  margin-right: 50px;
   font-size: 30px;
 }
 
@@ -263,6 +300,17 @@ const saveProfile = () => {
   height: 80px;
 }
 
+/* Preview Foto di Modal */
+.preview-photo {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-top: 10px;
+  border: 2px solid #0077c2;
+}
+
 .modal-buttons {
   display: flex;
   justify-content: space-between;
@@ -294,7 +342,22 @@ const saveProfile = () => {
   background-color: #aaa;
 }
 
-/* === Animasi Modal === */
+/* === Notifikasi Share === */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #004d80;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease;
+  z-index: 1000;
+}
+
+/* Animasi */
 @keyframes fadeIn {
   from {
     opacity: 0;

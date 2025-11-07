@@ -9,39 +9,39 @@
    </p>
 
       <div class="profile-card">
-    <h2>Profil Kucing</h2>
-    <div class="profile-content">
-     <img src="/cat.png" alt="Foto Kucing" class="cat-photo" />
-     <div class="cat-info">
-      <p><strong>Nama :</strong> abul</p>
-      <p><strong>Umur :</strong> 9 Bulan</p>
-      <p><strong>Tanggal Lahir :</strong> 1 Desember 2024</p>
-      <p><strong>Diadopsi Selama :</strong> 1 Minggu</p>
-     </div>
-    </div>
-   </div>
+        <h2>Profil Kucing</h2>
+        <div class="profile-content">
+          <img src="../assets/img/cat-donasi.png" alt="Foto Kucing" class="cat-photo" />
+          <div class="cat-info">
+            <p><strong>Nama :</strong> abul</p>
+            <p><strong>Umur :</strong> 9 Bulan</p>
+            <p><strong>Tanggal Lahir :</strong> 1 Desember 2024</p>
+            <p><strong>Diadopsi Selama :</strong> 1 Minggu</p>
+          </div>
+        </div>
+      </div>
 
       <div class="week-card">
-    <h3>Minggu Pertama</h3>
-    <div class="week-content">
-     <div class="week-item">
-      <h4>Makanan:</h4>
-      <img src="/cat.png" alt="Makanan" />
-      <input type="file" />
-     </div>
-     <div class="week-item">
-      <h4>Aktivitas:</h4>
-      <img src="/cat.png" alt="Aktivitas" />
-      <input type="file" />
-     </div>
-     <div class="week-item">
-      <h4>Kotoran:</h4>
-      <img src="/cat.png" alt="Kotoran" />
-      <input type="file" />
-     </div>
-    </div>
-    <button class="submit-btn">Submit</button>
-   </div>
+        <h3>Minggu Pertama</h3>
+        <div class="week-content">
+          <div class="week-item">
+            <h4>Makanan:</h4>
+            <img src="../assets/img/makanan.png" alt="Makanan" />
+            <input type="file" />
+          </div>
+          <div class="week-item">
+            <h4>Aktivitas:</h4>
+            <img src="../assets/img/aktivitas.png" alt="Aktivitas" />
+            <input type="file" />
+          </div>
+          <div class="week-item">
+            <h4>Kotoran:</h4>
+            <img src="../assets/img/kotoran.png" alt="Kotoran" />
+            <input type="file" />
+          </div>
+        </div>
+        <button class="submit-btn">Submit</button>
+      </div>
 
       <div class="week-card locked">
     <h3>Minggu Kedua</h3>
@@ -96,12 +96,12 @@ import Navbar from "@/components/Navbar.vue";
 
 <style scoped>
 .form-page {
- font-family: "Poppins", sans-serif;
- background-color: #0e75b6;
- min-height: 100vh;
- color: #fff;
- padding-bottom: 3rem;
- background-image: url('/background.png');
+  font-family: "Poppins", sans-serif;
+  background-color: #0e75b6;
+  min-height: 100vh;
+  color: #fff;
+  padding-bottom: 3rem;
+  background-image: url('../assets/img/background.png');
 }
 
 .container {
@@ -189,10 +189,10 @@ import Navbar from "@/components/Navbar.vue";
 
 .week-item img,
 .week-item .placeholder {
- width: 100%;
- height: 120px;
- border-radius: 10px;
- object-fit: cover;
+  width: 100%;
+  height: 260px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .week-item input {

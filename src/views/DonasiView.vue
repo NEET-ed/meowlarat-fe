@@ -54,7 +54,7 @@
       <!-- Bagian kanan -->
       <div class="donasi-right">
         <div class="cat-image">
-          <img src="/cat-donasi.png" alt="kucing" />
+          <img src="../assets/img/cat-donasi.png" alt="kucing" />
         </div>
 
         <div class="payment-box">
@@ -122,13 +122,13 @@ const showSubmitPopup = ref(false)
 
 const banks = [
   { name: 'BRI', logo: '../src/assets/img/bri.png' },
-  { name: 'BCA', logo: '/banks/bca.png' },
-  { name: 'Mandiri', logo: '/banks/mandiri.png' },
-  { name: 'Permata', logo: '/banks/permata.png' },
-  { name: 'BNI', logo: '/banks/bni.png' },
-  { name: 'BSI', logo: '/banks/bsi.png' },
-  { name: 'SeaBank', logo: '/banks/seabank.png' },
-  { name: 'Other', logo: '../assets/img/other.png' }
+  { name: 'BCA', logo: '../src/assets/img/bca.png' },
+  { name: 'Mandiri', logo: '../src/assets/img/mandiri.png' },
+  { name: 'Permata', logo: '../src/assets/img/permata.png' },
+  { name: 'BNI', logo: '../src/assets/img/bni.png' },
+  { name: 'BSI', logo: '../src/assets/img/bsi.png' },
+  { name: 'SeaBank', logo: '../src/assets/img/seabank.png' },
+  { name: 'Other', logo: '../src/assets/img/other.png' }
 ]
 
 function openPopup(method) {

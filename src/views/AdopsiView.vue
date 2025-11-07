@@ -17,7 +17,7 @@
  <button class="cta-adopt-btn" @click="scrollToSection('adopsi-view')">Adopsi</button>
  <button class="cta-list-btn" @click="scrollToSection('list-view')">List Adopsi Saya</button>
 </div>
-<img src="/Hero-adopt.jpg" alt="Kucing melihat ke atas tombol adopsi" class="hero-cat-image">
+<img src="../assets/img/Hero-adopt.jpg" alt="Kucing melihat ke atas tombol adopsi" class="hero-cat-image">
 </div>
 </section>
 
@@ -80,7 +80,7 @@
    <p>Umur : {{ history.age }}</p>
    <p>Tanggal Lahir : {{ history.dob }}</p>
    <p>Diadopsi Selama : {{ history.duration }}</p>
-   <button class="form-btn">Form</button>
+   <router-link to="/form" class="form-btn">Form</router-link>
   </div>
   </div>
   <button class="more-btn secondary-more-btn">Lihat Lebih Banyak</button>
@@ -100,7 +100,7 @@
  </div>
  <div class="modal-content">
   <div class="cat-image-detail">
-  <img :src="selectedCat.image || '/Hero-adopt.jpg'" :alt="selectedCat.name" class="cat-detail-img">
+  <img :src="selectedCat.image || '../assets/img/Hero-adopt.jpg'" :alt="selectedCat.name" class="cat-detail-img">
   </div>
   <div class="cat-details-text">
   <p><strong>Nama : </strong>{{ selectedCat.name }}</p>
@@ -133,24 +133,24 @@ selectedCat: {},
 
 // Data untuk Daftar Kucing
 availableCats: [
-{ name: 'Mudirk', image: '/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Local', character: 'Lincah', vaccinationStatus: 'Sudah' },
-{ name: 'Mujair', image: '/Hero-adopt.jpg', age: '9 Bulan', gender: 'Jantan', breed: 'British Short Hair', character: 'Jinak', vaccinationStatus: 'Sudah' },
-{ name: 'Kremes', image: '/Hero-adopt.jpg', age: '2 Tahun', gender: 'Betina', breed: 'Anggora', character: 'Manja', vaccinationStatus: 'Belum' },
-{ name: 'Cemong', image: '/Hero-adopt.jpg', age: '6 Bulan', gender: 'Betina', breed: 'Local', character: 'Aktif', vaccinationStatus: 'Sudah' },
-{ name: 'Bule', image: '/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Persia', character: 'Pendiam', vaccinationStatus: 'Sudah' },
-{ name: 'Gombloh', image: '/Hero-adopt.jpg', age: '4 Bulan', gender: 'Jantan', breed: 'Local', character: 'Jinak', vaccinationStatus: 'Belum' },
-{ name: 'Moci', image: '/Hero-adopt.jpg', age: '9 Bulan', gender: 'Betina', breed: 'Scottish Fold', character: 'Lincah', vaccinationStatus: 'Sudah' },
-{ name: 'Ciko', image: '/Hero-adopt.jpg', age: '3 Tahun', gender: 'Jantan', breed: 'Local', character: 'Pendiam', vaccinationStatus: 'Sudah' },
+{ name: 'Mudirk', image: '../src/assets/img/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Local', character: 'Lincah', vaccinationStatus: 'Sudah' },
+{ name: 'Mujair', image: '../src/assets/img/Hero-adopt.jpg', age: '9 Bulan', gender: 'Jantan', breed: 'British Short Hair', character: 'Jinak', vaccinationStatus: 'Sudah' },
+{ name: 'Kremes', image: '../src/assets/img/Hero-adopt.jpg', age: '2 Tahun', gender: 'Betina', breed: 'Anggora', character: 'Manja', vaccinationStatus: 'Belum' },
+{ name: 'Cemong', image: '../src/assets/img/Hero-adopt.jpg', age: '6 Bulan', gender: 'Betina', breed: 'Local', character: 'Aktif', vaccinationStatus: 'Sudah' },
+{ name: 'Bule', image: '../src/assets/img/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Persia', character: 'Pendiam', vaccinationStatus: 'Sudah' },
+{ name: 'Gombloh', image: '../src/assets/img/Hero-adopt.jpg', age: '4 Bulan', gender: 'Jantan', breed: 'Local', character: 'Jinak', vaccinationStatus: 'Belum' },
+{ name: 'Moci', image: '../src/assets/img/Hero-adopt.jpg', age: '9 Bulan', gender: 'Betina', breed: 'Scottish Fold', character: 'Lincah', vaccinationStatus: 'Sudah' },
+{ name: 'Ciko', image: '../src/assets/img/Hero-adopt.jpg', age: '3 Tahun', gender: 'Jantan', breed: 'Local', character: 'Pendiam', vaccinationStatus: 'Sudah' },
 ],
 // Data untuk Verifikasi Adopsi
 verificationList: [
-{ name: 'Abul', age: '9 bulan', dob: '1 Desember 2024', status: 'Proses pemeriksaan', image: '/Hero-adopt.jpg' },
-{ name: 'Abul', age: '9 month', dob: '1 december 2024', status: 'Proses pemeriksaan', image: '/Hero-adopt.jpg' },
+{ name: 'Abul', age: '9 bulan', dob: '1 Desember 2024', status: 'Proses pemeriksaan', image: '../src/assets/img/Hero-adopt.jpg' },
+{ name: 'Abul', age: '9 month', dob: '1 december 2024', status: 'Proses pemeriksaan', image: '../src/assets/img/Hero-adopt.jpg' },
 ],
 // Data untuk Sejarah Adopsi
 historyList: [
-{ name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '/Hero-adopt.jpg' },
-{ name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '/Hero-adopt.jpg' },
+{ name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '../src/assets/img/Hero-adopt.jpg' },
+{ name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '../src/assets/img/Hero-adopt.jpg' },
 ]
 };
 },
@@ -442,6 +442,8 @@ padding: 5px 20px;
 border-radius: 5px;
 cursor: pointer;
 margin-top: 10px;
+font-size: 12px;
+text-decoration: none;
 }
 
 .history-title {

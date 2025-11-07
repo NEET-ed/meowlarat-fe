@@ -40,7 +40,7 @@ npm run build
 
 ## Cara Mengakses Semua Halaman (Routes)
 
-Aplikasi ini menggunakan **vue-router** untuk mengelola halaman. Setelah aplikasi berjalan (menggunakan `npm run dev` atau `npm run preview`), Anda dapat mengakses semua halaman yang didefinisikan dalam `src/router/index.js` dengan menambahkan path URL di browser, seperti yang tercantum di bawah ini:
+Aplikasi ini menggunakan **vue-router** untuk mengelola halaman. Setelah aplikasi berjalan (menggunakan `npm run dev`), Anda dapat mengakses semua halaman yang didefinisikan dalam `src/router/index.js` dengan menambahkan path URL di browser atau mengakses tombol yang terdapat pada laman, seperti yang tercantum di bawah ini:
 
 | Nama Halaman (View) | Path URL | Catatan |
 | :--- | :--- | :--- |

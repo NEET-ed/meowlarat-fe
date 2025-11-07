@@ -9,6 +9,7 @@ import CatpediaView from '@/views/CatpediaView.vue'
 import ForumView from '@/views/ForumView.vue'
 import DonasiView from '@/views/DonasiView.vue'
 import FindPlaceView from '@/views/FindPlaceView.vue'
+import FormView from '@/views/FormView.vue'
 
 const routes = [
   {
@@ -68,6 +69,11 @@ const routes = [
     path: '/donasi',
     name: 'DonasiView',
     component: DonasiView
+  },
+  {
+    path: '/form',
+    name: 'FormView',
+    component: FormView
   }
   
   // contoh rute tambahan:

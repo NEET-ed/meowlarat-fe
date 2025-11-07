@@ -62,12 +62,12 @@ body {
 
   .hero-image {
     position: absolute;
-    right: 60px;
+    right: 180px;
     bottom: -150px;
   }
 
   .hero-image img {
-    width: 520px;
+    width: 290px;
     height: auto;
   }
 

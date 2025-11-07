@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <button class="lainnya">Lainnya</button>
+    <router-link to="/adopsi#list-view" class="lainnya">Lainnya</router-link>
   </div>
 </template>
 
@@ -135,6 +135,7 @@
   background-color: #d7ecff;
   border-radius: 20px;
   padding: 15px;
+  margin-bottom: 20px;
   color: #004d80;
 }
 
@@ -157,7 +158,9 @@
   padding: 10px 40px;
   border-radius: 30px;
   font-weight: 700;
+  font-size: 10;
   color: #004d80;
   cursor: pointer;
+  text-decoration: none;
 }
 </style>

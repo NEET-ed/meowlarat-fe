@@ -15,7 +15,7 @@
  <div class="cta-container">
   <div class="cta-button-wrapper">
     <button class="cta-adopt-btn" @click="scrollToSection('adopsi-view')">Adopsi</button>
-  <button class="cta-list-btn" @click="scrollToSection('list-view')">List Adopsi Saya</button>
+    <button class="cta-list-btn" @click="scrollToSection('list-view')">List Adopsi Saya</button>
   </div>
   <img src="/Hero-adopt.jpg" alt="Kucing melihat ke atas tombol adopsi" class="hero-cat-image">
  </div>

@@ -80,7 +80,24 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // kalau ada hash (#list-view, #donasi, dll)
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth', // biar scroll halus
+      }
+    } 
+    // kalau user pakai tombol back/forward browser
+    else if (savedPosition) {
+      return savedPosition
+    } 
+    // default: scroll ke atas
+    else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="logo">
-      <img src="/logo.png" alt="Logo" />
+      <img src="../assets/img/logo.png" alt="Logo" />
       <span>MeowLarat</span>
     </div>
 

@@ -12,7 +12,7 @@
       <div class="profile-card">
         <h2>Profil Kucing</h2>
         <div class="profile-content">
-          <img src="/cat.png" alt="Foto Kucing" class="cat-photo" />
+          <img src="../assets/img/cat-donasi.png" alt="Foto Kucing" class="cat-photo" />
           <div class="cat-info">
             <p><strong>Nama :</strong> abul</p>
             <p><strong>Umur :</strong> 9 Bulan</p>
@@ -28,17 +28,17 @@
         <div class="week-content">
           <div class="week-item">
             <h4>Makanan:</h4>
-            <img src="/cat.png" alt="Makanan" />
+            <img src="../assets/img/makanan.png" alt="Makanan" />
             <input type="file" />
           </div>
           <div class="week-item">
             <h4>Aktivitas:</h4>
-            <img src="/cat.png" alt="Aktivitas" />
+            <img src="../assets/img/aktivitas.png" alt="Aktivitas" />
             <input type="file" />
           </div>
           <div class="week-item">
             <h4>Kotoran:</h4>
-            <img src="/cat.png" alt="Kotoran" />
+            <img src="../assets/img/kotoran.png" alt="Kotoran" />
             <input type="file" />
           </div>
         </div>
@@ -105,7 +105,7 @@ import Navbar from "@/components/Navbar.vue";
   min-height: 100vh;
   color: #fff;
   padding-bottom: 3rem;
-  background-image: url('/background.png');
+  background-image: url('../assets/img/background.png');
 }
 
 .container {
@@ -194,7 +194,7 @@ import Navbar from "@/components/Navbar.vue";
 .week-item img,
 .week-item .placeholder {
   width: 100%;
-  height: 120px;
+  height: 260px;
   border-radius: 10px;
   object-fit: cover;
 }

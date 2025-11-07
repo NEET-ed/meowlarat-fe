@@ -2,7 +2,7 @@
   <nav class="navbar">
     <!-- Logo -->
     <div class="logo">
-      <img src="/logo.png" alt="Logo" />
+      <img src="../assets/img/logo.png" alt="Logo" />
       <span>MeowLarat</span>
     </div>
 
@@ -26,9 +26,9 @@
       <!-- Profil pindah ke bawah nav link di mode mobile -->
       <div class="mobile-profile" v-if="isMenuOpen">
         <div class="profile-section">
-          <span class="username">Mudrik Ganteng</span>
+          <span class="username">Raffie Arsy</span>
           <div class="profile-dropdown">
-            <img src="/cat.png" alt="User Profile" class="profile-avatar" />
+            <img src="../assets/img/cat.png" alt="User Profile" class="profile-avatar" />
             <div class="dropdown-menu">
               <router-link to="/profil" class="dropdown-item">Profil Saya</router-link>
               <router-link to="/login" class="dropdown-item">Logout</router-link>
@@ -40,9 +40,9 @@
 
     <!-- Profil (hanya desktop) -->
     <div class="profile-section desktop-profile">
-      <span class="username">Mudrik Ganteng</span>
+      <span class="username">Raffie Arsy</span>
       <div class="profile-dropdown">
-        <img src="/cat.png" alt="User Profile" class="profile-avatar" />
+        <img src="../assets/img/profil.png" alt="User Profile" class="profile-avatar" />
         <div class="dropdown-menu">
           <router-link to="/profil" class="dropdown-item">Profil Saya</router-link>
           <router-link to="/login" class="dropdown-item">Logout</router-link>

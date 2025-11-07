@@ -21,7 +21,7 @@
     <!-- Bagian Kucing Baru Diadopsi -->
     <h3 class="section-title">Baru Diadopsi</h3>
     <div class="adopted-card">
-      <img class="cat-photo" src="/cat.png" alt="Kucing Diadopsi" />
+      <img class="cat-photo" src="../assets/img/cat-donasi.png" alt="Kucing Diadopsi" />
       <div class="cat-info">
         <p><strong>Nama :</strong> abul</p>
         <p><strong>Umur :</strong> 9 Bulan</p>
@@ -67,7 +67,7 @@ import NavbarLogin from '../components/NavbarLogin.vue';
 // Data profil utama
 const name = ref('Raffie Arsy');
 const bio = ref('Saya mahasiswa ilmu komputer UPI yang menyukai hewan kucing. Salam kenal!');
-const photo = ref('/cat.png');
+const photo = ref('../src/assets/img/profil.png');
 
 // Data sementara (modal)
 const tempName = ref('');
@@ -127,7 +127,7 @@ const shareProfile = async () => {
 .profile-page {
   font-family: 'Poppins', sans-serif;
   background-color: #0077c2;
-  background-image: url(/background.png);
+  background-image: url(../assets/img/background.png);
   color: white;
   min-height: 100vh;
   padding: 30px 200px 200px;

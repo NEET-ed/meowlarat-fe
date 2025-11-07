@@ -34,29 +34,6 @@
         </div>
       </div>
     </div>
-    
-    <!-- <div class="artikel-populer-section">
-      <h2 class="section-title">Artikel Populer</h2>
-      <div class="artikel-populer" v-if="popularArticles.length">
-        <div
-          v-for="(article, index) in popularArticles"
-          :key="index"
-          class="artikel-card populer"
-        >
-          <div class="artikel-card-left">
-            <div class="icon-cat">🐱</div>
-          </div>
-          <div class="artikel-card-right">
-            <div class="artikel-kategori">{{ article.category }}</div>
-            <h3>{{ article.title }}</h3>
-            <p>{{ article.description }}</p>
-            <router-link :to="'/artikel/' + article.slug" class="readmore">
-              Baca Selengkapnya →
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <!-- Artikel Terbaru -->
     <div class="artikel-terbaru-section">

@@ -4,7 +4,7 @@
       <!-- Kiri -->
       <div class="left-side">
         <h3>Miaw-miaw Menunggumu Kamu!</h3>
-        <img src="/cat.png" alt="Kucing" class="cat-img" />
+        <img src="../assets/img/cat.png" alt="Kucing" class="cat-img" />
       </div>
 
       <!-- Kanan -->
@@ -175,7 +175,7 @@ body {
     flex-direction: column;
     width: 90%;
     height: auto;
-    background-image: url('/cat.png');
+    background-image: url('../assets/img/cat.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

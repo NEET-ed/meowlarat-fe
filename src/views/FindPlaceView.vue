@@ -5,39 +5,35 @@
   <section class="findplace-hero">
     <div class="container">
       <h1><span>Find</span>Place</h1>
-      <p>Cari toko dan dokter hewan terdekat!</p>
+      <p>Cari lokasi Petshop, Klinik Hewan, dan Toko Online Terpercaya di sekitarmu.</p>
     </div>
   </section>
 
   <!-- Lokasi Petshop & Vet -->
   <section class="findplace-section">
-    <div class="inner-container">
-      <h2 class="section-title">Lokasi Petshop & Vet</h2>
-      <div class="map-placeholder">
-        <p>Peta akan ditampilkan di sini...</p>
-      </div>
+    <h2 class="section-title">Lokasi Petshop & Vet</h2>
+    <div class="map-placeholder">
+      <p>Peta akan ditampilkan di sini...</p>
     </div>
   </section>
 
   <!-- Rekomendasi Petshop & Vet -->
   <section class="findplace-section">
-    <div class="inner-container">
-      <div class="section-header">
-        <h2 class="section-title">Rekomendasi Petshop & Vet</h2>
-        <div class="carousel-nav">
-          <button @click="scrollCarousel('petshops', -1)">‹</button>
-          <button @click="scrollCarousel('petshops', 1)">›</button>
-        </div>
+    <div class="section-header">
+      <h2 class="section-title">Rekomendasi Petshop & Vet</h2>
+      <div class="carousel-nav">
+        <button @click="scrollCarousel('petshops', -1)">‹</button>
+        <button @click="scrollCarousel('petshops', 1)">›</button>
       </div>
+    </div>
 
-      <div ref="petshopsCarousel" class="carousel-track">
-        <div v-for="(shop, index) in petshops" :key="index" class="place-card">
-          <img :src="shop.image" alt="Petshop Image" />
-          <h3>{{ shop.name }}</h3>
-          <p class="address">{{ shop.address }}</p>
-          <div class="stars">
-            <span v-for="star in shop.rating" :key="star">⭐</span>
-          </div>
+    <div ref="petshopsCarousel" class="carousel-track">
+      <div v-for="(shop, index) in petshops" :key="index" class="place-card">
+        <img :src="shop.image" :alt="shop.name" />
+        <h3>{{ shop.name }}</h3>
+        <p class="address">{{ shop.address }}</p>
+        <div class="stars">
+          <span v-for="star in shop.rating" :key="star">⭐</span>
         </div>
       </div>
     </div>
@@ -45,22 +41,20 @@
 
   <!-- Rekomendasi Petshop Online -->
   <section class="findplace-section">
-    <div class="inner-container">
-      <div class="section-header">
-        <h2 class="section-title">Rekomendasi Petshop Online</h2>
-        <div class="carousel-nav">
-          <button @click="scrollCarousel('onlineShops', -1)">‹</button>
-          <button @click="scrollCarousel('onlineShops', 1)">›</button>
-        </div>
+    <div class="section-header">
+      <h2 class="section-title">Rekomendasi Petshop Online</h2>
+      <div class="carousel-nav">
+        <button @click="scrollCarousel('onlineShops', -1)">‹</button>
+        <button @click="scrollCarousel('onlineShops', 1)">›</button>
       </div>
+    </div>
 
-      <div ref="onlineCarousel" class="carousel-track">
-        <div v-for="(shop, index) in onlineShops" :key="index" class="place-card online">
-          <div class="shop-source">{{ shop.source }}</div>
-          <h3>{{ shop.name }}</h3>
-          <p>{{ shop.description }}</p>
-          <a :href="shop.link" target="_blank" class="visit-btn">Kunjungi Toko</a>
-        </div>
+    <div ref="onlineCarousel" class="carousel-track">
+      <div v-for="(shop, index) in onlineShops" :key="index" class="place-card online">
+        <div class="shop-source">{{ shop.source }}</div>
+        <h3>{{ shop.name }}</h3>
+        <p>{{ shop.description }}</p>
+        <a :href="shop.link" target="_blank" class="visit-btn">Kunjungi Toko</a>
       </div>
     </div>
   </section>
@@ -70,36 +64,42 @@
 import { ref, onMounted } from "vue";
 import Navbar from "../components/Navbar.vue";
 
+// import gambar lokal (contoh placeholder)
+import gerlongImg from "../assets/img/cat-icon.png";
+import ozoraImg from "../assets/img/cat-icon.png";
+import cimuImg from "../assets/img/cat-icon.png";
+import careImg from "../assets/img/cat-icon.png";
+
 const petshopsCarousel = ref(null);
 const onlineCarousel = ref(null);
 
 const petshops = ref([]);
 const onlineShops = ref([]);
 
-// dummy data (bisa diganti axios nanti)
+// 🧩 Dummy data — nanti bisa diganti axios call ke DB
 onMounted(() => {
   petshops.value = [
     {
       name: "Gerlong Petshop",
-      image: "https://via.placeholder.com/250x150",
-      address: "Jl. Gegerkalong Hilir, No. 51, Parongpong",
+      image: gerlongImg,
+      address: "Jl. Gegerkalong Hilir No. 51, Parongpong",
       rating: 5,
     },
     {
       name: "Klinik Hewan Ozora",
-      image: "https://via.placeholder.com/250x150",
+      image: ozoraImg,
       address: "Jl. Setrasari III Ruko 2C, Sukarasa",
       rating: 5,
     },
     {
       name: "Cimu PetShop",
-      image: "https://via.placeholder.com/250x150",
-      address: "Jl. Ciwaruga, No. 28, Parongpong",
+      image: cimuImg,
+      address: "Jl. Ciwaruga No. 28, Parongpong",
       rating: 5,
     },
     {
       name: "Pets & Care Bandung",
-      image: "https://via.placeholder.com/250x150",
+      image: careImg,
       address: "Jl. Sukajadi No. 40",
       rating: 4,
     },
@@ -110,20 +110,20 @@ onMounted(() => {
       source: "SHOPEE.CO.ID",
       name: "Toko Kucing Gemoy",
       description:
-        "Menjual perlengkapan grooming dan makanan dengan harga terjangkau dan rating tinggi.",
+        "Menjual perlengkapan grooming dan makanan dengan harga terjangkau.",
       link: "https://shopee.co.id",
     },
     {
       source: "PETCARE.ID",
       name: "MeongCare",
       description:
-        "Dikelola oleh dokter hewan, menjual produk kesehatan dan perawatan premium.",
+        "Menjual produk kesehatan dan perawatan premium dari dokter hewan.",
       link: "https://petcare.id",
     },
     {
       source: "TOKOPEDIA.COM",
       name: "CatLovers Store",
-      description: "Aneka makanan dan vitamin hewan peliharaan favorit kamu!",
+      description: "Makanan dan vitamin favorit untuk hewan peliharaan kamu!",
       link: "https://tokopedia.com",
     },
   ];
@@ -146,8 +146,15 @@ body {
 
 /* Hero Section */
 .findplace-hero {
-  color: #fffce8;
-  padding: 100px 20px;
+  text-align: left;
+  color: #fdf2d6;
+  padding: 100px 20px 60px;
+}
+
+.findplace-hero .container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .findplace-hero h1 {
@@ -155,39 +162,31 @@ body {
   margin-bottom: 10px;
 }
 
-.findplace-hero h1 span {
-  color: #ffd77a;
-}
-
 .findplace-hero p {
   font-size: 1.3rem;
-  max-width: 600px;
+  max-width: 700px;
 }
 
-/* Blue Section */
+/* Section Container */
 .findplace-section {
   background-color: #d8eaff;
-  margin: 50px auto;
   border-radius: 20px;
-  padding: 50px 0;
-}
-
-/* ✅ inner-container to center blue box content */
-.inner-container {
+  margin: 40px auto;
+  padding: 40px 50px;
   width: 90%;
   max-width: 1100px;
-  margin: 0 auto;
   text-align: left;
 }
 
+/* Section Title */
 .section-title {
   color: #0b4b92;
   font-weight: 700;
   font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-/* Map placeholder */
+/* Map Placeholder */
 .map-placeholder {
   background: #f0f9ff;
   border-radius: 15px;
@@ -199,12 +198,11 @@ body {
   font-size: 1rem;
 }
 
-/* Header with arrows */
+/* Header for carousel */
 .section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
 }
 
 .carousel-nav button {
@@ -229,7 +227,7 @@ body {
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 20px;
-  padding-bottom: 5px;
+  padding-top: 15px;
   scrollbar-width: none;
 }
 
@@ -237,7 +235,7 @@ body {
   display: none;
 }
 
-/* Card style */
+/* Card Styles */
 .place-card {
   flex: 0 0 auto;
   width: 250px;
@@ -277,7 +275,7 @@ body {
   font-size: 1rem;
 }
 
-/* Online cards */
+/* Online Cards */
 .place-card.online {
   background: #f0f9ff;
 }
@@ -309,29 +307,23 @@ body {
   .findplace-hero h1 {
     font-size: 3rem;
   }
-  .inner-container {
-    width: 92%;
-  }
-  .place-card {
-    width: 220px;
+  .findplace-section {
+    padding: 30px 25px;
   }
 }
 
 @media (max-width: 600px) {
   .findplace-hero {
-    padding: 80px 15px;
+    padding: 80px 15px 40px;
   }
   .findplace-hero h1 {
     font-size: 2.5rem;
   }
   .findplace-section {
-    padding: 30px 0;
+    padding: 25px 20px;
   }
   .section-title {
     font-size: 1.5rem;
-  }
-  .place-card {
-    width: 200px;
   }
 }
 </style>

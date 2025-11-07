@@ -21,7 +21,7 @@
           class="artikel-card populer"
         >
         <div class="artikel-card-left">
-            <div class="icon-cat">🐱</div>
+            <img src="../assets/img/cat-icon.png" alt="Kucing lucu" />
           </div>
         <div class="artikel-card-right">
           <p class="artikel-kategori">{{ article.category }}</p>
@@ -34,7 +34,6 @@
         </div>
       </div>
     </div>
-
     <!-- Artikel Terbaru -->
     <div class="artikel-terbaru-section">
       <h2 class="section-title">Artikel Terbaru</h2>
@@ -73,6 +72,8 @@ onMounted(async () => {
       description:
         "Program Trap-Neuter-Return (TNR) adalah metode yang paling manusiawi dan efektif untuk mengelola populasi kucing liar.",
       slug: "program-tnr-kucing-liar",
+      image: new URL("../assets/img/cat-icon.png", import.meta.url).href,
+
     },
   ];
 
@@ -199,17 +200,20 @@ body {
 }
 
 .artikel-card-left {
-  flex: 0 0 20%;
+  flex: 0 0 25%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: clamp(20px, 5vw, 30px);
+  background-color: #a7f3e6;
+  padding: clamp(15px, 3vw, 25px);
 }
 
-.icon-cat {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: #007f6b;
+.artikel-card-left img.artikel-image {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .artikel-card-right {

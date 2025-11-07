@@ -21,99 +21,97 @@
 
       <hr class="section-divider" />
 
-<section 
-class="cat-list-section" 
-id="adopsi-view"
->
-<h1 class="cat-list-title">Kucing Menunggu Kamu</h1>
-<p class="cat-list-description">Lihat daftar kucing yang siap diadopsi. Setiap kucing punya cerita unik dan kesempatan untuk menemukan rumah penuh kasih.</p>
+      <section class="cat-list-section" id="adopsi-view">
+        <h1 class="cat-list-title">Kucing Menunggu Kamu</h1>
+        <p class="cat-list-description">Lihat daftar kucing yang siap diadopsi. Setiap kucing punya cerita unik dan
+          kesempatan untuk menemukan rumah penuh kasih.</p>
 
-<div class="cat-list-wrapper">
-<div class="cat-grid">
- <div 
- v-for="(cat, index) in availableCats.slice(0, 8)" 
- :key="index" 
- class="cat-card"
- @click="showCatModal(cat)"
- >
- <img :src="cat.image" :alt="cat.name" class="cat-image">
- <p class="cat-name">{{ cat.name }}</p>
- </div>
-</div>
- <button class="more-btn">Lihat lebih banyak</button>
-</div>
+        <div class="cat-list-wrapper">
+          <div class="cat-grid">
+            <div v-for="(cat, index) in availableCats.slice(0, 8)" :key="index" class="cat-card"
+              @click="showCatModal(cat)">
+              <img :src="cat.image" :alt="cat.name" class="cat-image">
+              <p class="cat-name">{{ cat.name }}</p>
+            </div>
+          </div>
+          <button class="more-btn">Lihat lebih banyak</button>
+        </div>
 
 
-</section>
+      </section>
 
-<hr class="section-divider" />
+      <hr class="section-divider" />
 
-<section 
-class="my-list-section" 
-id="list-view"
->
-<h1 class="my-list-title">List Kucing Anda</h1>
-<p class="my-list-description">Di sini kamu bisa melihat status permintaan adopsi serta daftar kucing yang sudah berhasil kamu adopsi. Pantau proses pengajuanmu dan kenang kembali kucing yang kini telah menemukan rumah barunya.</p>
+      <section class="my-list-section" id="list-view">
+        <h1 class="my-list-title">List Kucing Anda</h1>
+        <p class="my-list-description">Di sini kamu bisa melihat status permintaan adopsi serta daftar kucing yang sudah
+          berhasil kamu adopsi. Pantau proses pengajuanmu dan kenang kembali kucing yang kini telah menemukan rumah
+          barunya.</p>
 
-<div class="list-card-wrapper">
- <h2 class="sub-section-title">Verifikasi Adopsi</h2>
- <div v-for="(verif, index) in verificationList" :key="'verif-' + index" class="status-card">
- <img :src="verif.image" :alt="verif.name" class="status-cat-image">
- <div class="status-details">
- <p>Nama : {{ verif.name }}</p>
- <p>Umur : {{ verif.age }}</p>
- <p>Tanggal Lahir : {{ verif.dob }}</p>
- <p class="status-text">Status : {{ verif.status }}</p>
- </div>
- </div>
- <button class="more-btn secondary-more-btn">Lihat Lebih Banyak</button>
-</div>
+        <div class="list-card-wrapper">
+          <h2 class="sub-section-title">Verifikasi Adopsi</h2>
+          <div v-for="(verif, index) in verificationList" :key="'verif-' + index" class="status-card">
+            <img :src="verif.image" :alt="verif.name" class="status-cat-image">
+            <div class="status-details">
+              <p>Nama : {{ verif.name }}</p>
+              <p>Umur : {{ verif.age }}</p>
+              <p>Tanggal Lahir : {{ verif.dob }}</p>
+              <p class="status-text">Status : {{ verif.status }}</p>
+            </div>
+          </div>
+          <button class="more-btn secondary-more-btn">Lihat Lebih Banyak</button>
+        </div>
 
-<div class="list-card-wrapper">
- <h2 class="sub-section-title history-title">Sejarah Adopsi Kucing</h2>
- <div v-for="(history, index) in historyList" :key="'history-' + index" class="status-card">
- <img :src="history.image" :alt="history.name" class="status-cat-image">
- <div class="status-details">
- <p>Nama : {{ history.name }}</p>
- <p>Umur : {{ history.age }}</p>
- <p>Tanggal Lahir : {{ history.dob }}</p>
- <p>Diadopsi Selama : {{ history.duration }}</p>
- <router-link to="/form" class="form-btn">Form</router-link>
- </div>
- </div>
- <button class="more-btn secondary-more-btn">Lihat Lebih Banyak</button>
-</div>
+        <div class="list-card-wrapper">
+          <h2 class="sub-section-title history-title">Sejarah Adopsi Kucing</h2>
+          <div v-for="(history, index) in historyList" :key="'history-' + index" class="status-card">
+            <img :src="history.image" :alt="history.name" class="status-cat-image">
+            <div class="status-details">
+              <p>Nama : {{ history.name }}</p>
+              <p>Umur : {{ history.age }}</p>
+              <p>Tanggal Lahir : {{ history.dob }}</p>
+              <p>Diadopsi Selama : {{ history.duration }}</p>
+              <router-link to="/form" class="form-btn">Form</router-link>
+            </div>
+          </div>
+          <button class="more-btn secondary-more-btn">Lihat Lebih Banyak</button>
+        </div>
 
 
-</section>
-</div>
+      </section>
+    </div>
 
-<div class="modal-overlay" v-if="isModalOpen" @click.self="closeCatModal">
-<div class="cat-info-modal">
-<div class="modal-header">
- <h2>Informasi Kucing</h2>
- <button class="close-btn" @click="closeCatModal">
- <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
- </button>
-</div>
-<div class="modal-content">
- <div class="cat-image-detail">
- <img :src="selectedCat.image || '../assets/img/Hero-adopt.jpg'" :alt="selectedCat.name" class="cat-detail-img">
- </div>
- <div class="cat-details-text">
- <p><strong>Nama : </strong>{{ selectedCat.name }}</p>
- <p><strong>Umur : </strong>{{ selectedCat.age }}</p>
- <p><strong>Jenis Kelamin : </strong>{{ selectedCat.gender }}</p>
- <p><strong>Ras : </strong>{{ selectedCat.breed }}</p>
- <p><strong>Karakter : </strong>{{ selectedCat.character }}</p>
- <p><strong>Status vaksinasi : </strong>{{ selectedCat.vaccinationStatus }}</p>
- <button class="adopt-detail-btn" @click="handleAdoptClick">Adopsi</button>
- </div>
-</div>
+    <div class="modal-overlay" v-if="isModalOpen" @click.self="closeCatModal">
+      <div class="cat-info-modal">
+        <div class="modal-header">
+          <h2>Informasi Kucing</h2>
+          <button class="close-btn" @click="closeCatModal">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-content">
+          <div class="cat-image-detail">
+            <img :src="selectedCat.image || '../assets/img/Hero-adopt.jpg'" :alt="selectedCat.name"
+              class="cat-detail-img">
+          </div>
+          <div class="cat-details-text">
+            <p><strong>Nama : </strong>{{ selectedCat.name }}</p>
+            <p><strong>Umur : </strong>{{ selectedCat.age }}</p>
+            <p><strong>Jenis Kelamin : </strong>{{ selectedCat.gender }}</p>
+            <p><strong>Ras : </strong>{{ selectedCat.breed }}</p>
+            <p><strong>Karakter : </strong>{{ selectedCat.character }}</p>
+            <p><strong>Status vaksinasi : </strong>{{ selectedCat.vaccinationStatus }}</p>
+            <button class="adopt-detail-btn" @click="handleAdoptClick">Adopsi</button>
+          </div>
+        </div>
 
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -129,57 +127,57 @@ export default {
       isModalOpen: false,
       selectedCat: {},
 
-// Data untuk Daftar Kucing
-availableCats: [
-{ name: 'Mudirk', image: '../src/assets/img/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Local', character: 'Lincah', vaccinationStatus: 'Sudah' },
-{ name: 'Mujair', image: '../src/assets/img/Hero-adopt.jpg', age: '9 Bulan', gender: 'Jantan', breed: 'British Short Hair', character: 'Jinak', vaccinationStatus: 'Sudah' },
-{ name: 'Kremes', image: '../src/assets/img/Hero-adopt.jpg', age: '2 Tahun', gender: 'Betina', breed: 'Anggora', character: 'Manja', vaccinationStatus: 'Belum' },
-{ name: 'Cemong', image: '../src/assets/img/Hero-adopt.jpg', age: '6 Bulan', gender: 'Betina', breed: 'Local', character: 'Aktif', vaccinationStatus: 'Sudah' },
-{ name: 'Bule', image: '../src/assets/img/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Persia', character: 'Pendiam', vaccinationStatus: 'Sudah' },
-{ name: 'Gombloh', image: '../src/assets/img/Hero-adopt.jpg', age: '4 Bulan', gender: 'Jantan', breed: 'Local', character: 'Jinak', vaccinationStatus: 'Belum' },
-{ name: 'Moci', image: '../src/assets/img/Hero-adopt.jpg', age: '9 Bulan', gender: 'Betina', breed: 'Scottish Fold', character: 'Lincah', vaccinationStatus: 'Sudah' },
-{ name: 'Ciko', image: '../src/assets/img/Hero-adopt.jpg', age: '3 Tahun', gender: 'Jantan', breed: 'Local', character: 'Pendiam', vaccinationStatus: 'Sudah' },
-],
-// Data untuk Verifikasi Adopsi
-verificationList: [
-{ name: 'Abul', age: '9 bulan', dob: '1 Desember 2024', status: 'Proses pemeriksaan', image: '../src/assets/img/Hero-adopt.jpg' },
-{ name: 'Abul', age: '9 month', dob: '1 december 2024', status: 'Proses pemeriksaan', image: '../src/assets/img/Hero-adopt.jpg' },
-],
-// Data untuk Sejarah Adopsi
-historyList: [
-{ name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '../src/assets/img/Hero-adopt.jpg' },
-{ name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '../src/assets/img/Hero-adopt.jpg' },
-]
-};
-},
-methods: {
-scrollToSection(id) { 
-const element = document.getElementById(id);
-if (element) {
-element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-},
-showCatModal(cat) { 
-this.selectedCat = cat;
-this.isModalOpen = true;
-},
-closeCatModal() { 
-this.isModalOpen = false;
-this.selectedCat = {};
-},
-handleAdoptClick() {
-    // 1. Tampilkan pesan notifikasi
-    alert("Permintaan adopsi telah diterima, silahkan Verifikasi Adopsi!");
-    
-    // 2. Tutup Modal
-    this.closeCatModal();
-    
-    // 3. Scroll ke bagian List Kucing Saya (My List Section)
-    this.$nextTick(() => {
+      // Data untuk Daftar Kucing
+      availableCats: [
+        { name: 'Mudirk', image: '../src/assets/img/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Local', character: 'Lincah', vaccinationStatus: 'Sudah' },
+        { name: 'Mujair', image: '../src/assets/img/Hero-adopt.jpg', age: '9 Bulan', gender: 'Jantan', breed: 'British Short Hair', character: 'Jinak', vaccinationStatus: 'Sudah' },
+        { name: 'Kremes', image: '../src/assets/img/Hero-adopt.jpg', age: '2 Tahun', gender: 'Betina', breed: 'Anggora', character: 'Manja', vaccinationStatus: 'Belum' },
+        { name: 'Cemong', image: '../src/assets/img/Hero-adopt.jpg', age: '6 Bulan', gender: 'Betina', breed: 'Local', character: 'Aktif', vaccinationStatus: 'Sudah' },
+        { name: 'Bule', image: '../src/assets/img/Hero-adopt.jpg', age: '1 Tahun', gender: 'Jantan', breed: 'Persia', character: 'Pendiam', vaccinationStatus: 'Sudah' },
+        { name: 'Gombloh', image: '../src/assets/img/Hero-adopt.jpg', age: '4 Bulan', gender: 'Jantan', breed: 'Local', character: 'Jinak', vaccinationStatus: 'Belum' },
+        { name: 'Moci', image: '../src/assets/img/Hero-adopt.jpg', age: '9 Bulan', gender: 'Betina', breed: 'Scottish Fold', character: 'Lincah', vaccinationStatus: 'Sudah' },
+        { name: 'Ciko', image: '../src/assets/img/Hero-adopt.jpg', age: '3 Tahun', gender: 'Jantan', breed: 'Local', character: 'Pendiam', vaccinationStatus: 'Sudah' },
+      ],
+      // Data untuk Verifikasi Adopsi
+      verificationList: [
+        { name: 'Abul', age: '9 bulan', dob: '1 Desember 2024', status: 'Proses pemeriksaan', image: '../src/assets/img/Hero-adopt.jpg' },
+        { name: 'Abul', age: '9 month', dob: '1 december 2024', status: 'Proses pemeriksaan', image: '../src/assets/img/Hero-adopt.jpg' },
+      ],
+      // Data untuk Sejarah Adopsi
+      historyList: [
+        { name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '../src/assets/img/Hero-adopt.jpg' },
+        { name: 'abul', age: '9 month', dob: '1 december 2024', duration: '1 Minggu', image: '../src/assets/img/Hero-adopt.jpg' },
+      ]
+    };
+  },
+  methods: {
+    scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    },
+    showCatModal(cat) {
+      this.selectedCat = cat;
+      this.isModalOpen = true;
+    },
+    closeCatModal() {
+      this.isModalOpen = false;
+      this.selectedCat = {};
+    },
+    handleAdoptClick() {
+      // 1. Tampilkan pesan notifikasi
+      alert("Permintaan adopsi telah diterima, silahkan Verifikasi Adopsi!");
+
+      // 2. Tutup Modal
+      this.closeCatModal();
+
+      // 3. Scroll ke bagian List Kucing Saya (My List Section)
+      this.$nextTick(() => {
         this.scrollToSection('list-view');
-    });
-}
-}
+      });
+    }
+  }
 }
 </script>
 
@@ -528,11 +526,11 @@ h2 {
 }
 
 .cat-detail-img {
-width: 100%;
-min-height: 400px; 
-max-height: 500px;
-display: block;
-object-fit: cover;
+  width: 100%;
+  min-height: 400px;
+  max-height: 500px;
+  display: block;
+  object-fit: cover;
 }
 
 .cat-details-text {
@@ -576,187 +574,196 @@ RESPONSIVITAS BARU
 
 /* TABLET & MOBILE (max-width: 1024px) */
 @media (max-width: 1024px) {
-/* 1. Hero Section */
-.hero-adopt {
- padding: 60px 20px;
- text-align: center;
-}
 
-.hero-adopt h1 {
- font-size: 3.5rem; 
-}
+  /* 1. Hero Section */
+  .hero-adopt {
+    padding: 60px 20px;
+    text-align: center;
+  }
 
-.hero-adopt p {
- font-size: 1.1rem;
- margin-bottom: 20px;
-}
+  .hero-adopt h1 {
+    font-size: 3.5rem;
+  }
 
-.cta-container {
- max-height: unset; 
- padding: 20px;
-  position: relative; 
-}
+  .hero-adopt p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
 
-.cta-button-wrapper {
- 
- position: absolute; 
- bottom: 50%; 
- left: 50%; 
- transform: translate(-50%, 50%); 
- 
- display: flex;
- flex-direction: column; 
- justify-content: center;
- align-items: center;
- 
- width: 90%;
- gap: 15px;
- z-index: 3;
- padding: 0;
- margin-bottom: 0; 
- order: unset; 
-}
- 
- .cta-adopt-btn, .cta-list-btn {
-  width: 100%; 
-  min-width: unset;
- }
+  .cta-container {
+    max-height: unset;
+    padding: 20px;
+    position: relative;
+  }
 
-.hero-cat-image {
- width: 100%; 
- order: unset; 
-}
+  .cta-button-wrapper {
 
-/* 2. Cat List Grid */
-.cat-grid {
- grid-template-columns: repeat(2, 1fr); 
- gap: 15px;
-}
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
 
-/* 3. List Kucing Anda */
-.my-list-title, .my-list-description {
- text-align: center;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.my-list-title {
- font-size: 3.5rem; 
-}
+    width: 90%;
+    gap: 15px;
+    z-index: 3;
+    padding: 0;
+    margin-bottom: 0;
+    order: unset;
+  }
 
-.list-card-wrapper {
- padding: 20px;
-}
+  .cta-adopt-btn,
+  .cta-list-btn {
+    width: 100%;
+    min-width: unset;
+  }
 
-/* Status Card (Verifikasi & History) */
-.status-card {
- flex-direction: column; 
- align-items: center;
- text-align: center;
- padding: 15px;
-}
+  .hero-cat-image {
+    width: 100%;
+    order: unset;
+  }
 
-.status-cat-image {
- width: 100%;
- max-height: 250px;
- height: auto;
- margin-right: 0;
- margin-bottom: 15px;
-}
+  /* 2. Cat List Grid */
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 
-.status-details {
- width: 100%;
-}
+  /* 3. List Kucing Anda */
+  .my-list-title,
+  .my-list-description {
+    text-align: center;
+  }
 
-.form-btn {
- width: 100%;
-}
+  .my-list-title {
+    font-size: 3.5rem;
+  }
 
-/* 4. Modal Informasi Kucing */
-.cat-info-modal {
- max-width: 95%;
- max-height: 95vh;
- overflow-y: auto; 
- padding: 15px;
-}
+  .list-card-wrapper {
+    padding: 20px;
+  }
 
-.modal-content {
- flex-direction: column; 
- gap: 15px;
-}
+  /* Status Card (Verifikasi & History) */
+  .status-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
 
-.cat-image-detail {
- width: 100%; 
- max-height: 400px;
-}
+  .status-cat-image {
+    width: 100%;
+    max-height: 250px;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
 
-.cat-detail-img {
- min-height: 300px; 
- height: auto;
-}
+  .status-details {
+    width: 100%;
+  }
 
-.cat-details-text {
- width: 100%; 
- padding: 15px;
- box-sizing: border-box;
-}
+  .form-btn {
+    width: 100%;
+  }
 
-.adopt-detail-btn {
- width: 100%;
-}
+  /* 4. Modal Informasi Kucing */
+  .cat-info-modal {
+    max-width: 95%;
+    max-height: 95vh;
+    overflow-y: auto;
+    padding: 15px;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cat-image-detail {
+    width: 100%;
+    max-height: 400px;
+  }
+
+  .cat-detail-img {
+    min-height: 300px;
+    height: auto;
+  }
+
+  .cat-details-text {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .adopt-detail-btn {
+    width: 100%;
+  }
 }
 
 /* MOBILE KECIL (max-width: 600px) */
 @media (max-width: 600px) {
-/* Hero */
-.hero-adopt {
- padding: 40px 10px;
-}
 
-.hero-adopt h1, .cat-list-title, .my-list-title {
- font-size: 2.5rem;
-}
+  /* Hero */
+  .hero-adopt {
+    padding: 40px 10px;
+  }
 
-.hero-adopt p, .cat-list-description, .my-list-description {
- font-size: 1rem;
-}
+  .hero-adopt h1,
+  .cat-list-title,
+  .my-list-title {
+    font-size: 2.5rem;
+  }
 
-.cta-button-wrapper {
- flex-direction: column; 
-}
+  .hero-adopt p,
+  .cat-list-description,
+  .my-list-description {
+    font-size: 1rem;
+  }
 
-.cta-adopt-btn, .cta-list-btn {
- min-width: unset;
- padding: 12px 20px;
- width: 80%;
-}
+  .cta-button-wrapper {
+    flex-direction: column;
+  }
 
-/* Cat List Grid */
-.cat-grid {
- grid-template-columns: repeat(2, 1fr); 
- gap: 10px;
-}
+  .cta-adopt-btn,
+  .cta-list-btn {
+    min-width: unset;
+    padding: 12px 20px;
+    width: 80%;
+  }
 
-.cat-card {
- height: 200px; 
-}
+  /* Cat List Grid */
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 
-.cat-name {
- width: 90%;
- margin: 10px auto;
- padding: 5px 0;
- font-size: 0.9em;
-}
+  .cat-card {
+    height: 200px;
+  }
 
-/* List Kucing Anda */
-.sub-section-title {
- font-size: 1.5rem;
-}
+  .cat-name {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 0;
+    font-size: 0.9em;
+  }
 
-.status-card {
- padding: 10px;
-}
+  /* List Kucing Anda */
+  .sub-section-title {
+    font-size: 1.5rem;
+  }
 
-.status-details p {
- font-size: 0.9em;
-}
+  .status-card {
+    padding: 10px;
+  }
+
+  .status-details p {
+    font-size: 0.9em;
+  }
 }
 </style>

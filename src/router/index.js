@@ -8,6 +8,7 @@ import AdopsiView from '@/views/AdopsiView.vue'
 import CatpediaView from '@/views/CatpediaView.vue'
 import ForumView from '@/views/ForumView.vue'
 import DonasiView from '@/views/DonasiView.vue'
+import FindPlaceView from '@/views/FindPlaceView.vue'
 import FormView from '@/views/FormView.vue'
 
 const routes = [
@@ -45,6 +46,11 @@ const routes = [
     path: '/catpedia',
     name: 'CatPediaView',
     component: CatpediaView
+  },
+  {
+    path: '/findplace',
+    name: 'FindPlaceView',
+    component: FindPlaceView
   },
   {
     path: '/forum',

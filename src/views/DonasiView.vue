@@ -128,7 +128,7 @@ const banks = [
   { name: 'BNI', logo: '/banks/bni.png' },
   { name: 'BSI', logo: '/banks/bsi.png' },
   { name: 'SeaBank', logo: '/banks/seabank.png' },
-  { name: 'Other', logo: '/banks/other.png' }
+  { name: 'Other', logo: '../assets/img/other.png' }
 ]
 
 function openPopup(method) {

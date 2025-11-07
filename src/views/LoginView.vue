@@ -5,7 +5,7 @@
         <div class="mobile-title">Miaw-miaw Menunggumu Kamu!</div>
 
         <div class="logo">
-          <img src="/logo.png" alt="Logo MeowLarat" />
+          <img src="../assets/img/logo.png" alt="Logo MeowLarat" />
           <h2>MeowLarat</h2>
         </div>
 
@@ -29,7 +29,7 @@
 
       <div class="right-side">
         <h3>Miaw-miaw Menunggumu Kamu!</h3>
-        <img src="/cat.png" alt="Kucing" class="cat-img" />
+        <img src="../assets/img/cat.png" alt="Kucing" class="cat-img" />
       </div>
     </div>
   </div>
@@ -209,7 +209,7 @@ h1 {
     flex-direction: column;
     width: 90%;
     height: auto;
-    background-image: url('/cat.png');
+    background-image: url('../assets/img/cat.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

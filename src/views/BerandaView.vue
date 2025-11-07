@@ -8,28 +8,28 @@
       <router-link to="donasi" class="cta">Dukung Kami!</router-link>
     </div>
     <div class="hero-image">
-      <img src="/cat.png" alt="Kucing lucu" />
+      <img src="../assets/img/cat.png" alt="Kucing lucu" />
     </div>
   </section>
   
   <!-- Stats Section -->
   <section class="stats">
     <div class="stat-item">
-      <img src="/stats_kucing.png" alt="ikon kucing" ></img>
+      <img src="../assets/img/stats_kucing.png" alt="ikon kucing" ></img>
       <div class="ket-stat">
         <h2>999</h2>
         <p>Kucing Bisa Kamu Adopsi</p>
       </div>
     </div>
     <div class="stat-item">
-      <img src="/stats_adopsi.png" alt="ikon adopsi" ></img>
+      <img src="../assets/img/stats_adopsi.png" alt="ikon adopsi" ></img>
       <div class="ket-stat">
         <h2>999</h2>
         <p>Kucing Telah Diadopsi</p>
       </div>
     </div>
     <div class="stat-item">
-      <img src="/stats_shelter.png" alt="ikon shelter" ></img>
+      <img src="../assets/img/stats_shelter.png" alt="ikon shelter" ></img>
       <div class="ket-stat">
         <h2>999</h2>
         <p>Shelter Telah Bekerjasama</p>
@@ -114,7 +114,7 @@ body {
     font-weight: bold;
 
     position: relative;
-    margin-top: 90px;
+    margin-top: 100px;
     z-index: 2;
     
   }

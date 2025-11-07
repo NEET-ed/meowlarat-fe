@@ -274,6 +274,6 @@ function closeMenu() {
 .router-link-exact-active {
   border-bottom: 3px solid #fffce8;
   padding-bottom: 4px;
-  color: #ffeb99;
+  color: #edd05d;
 }
 </style>

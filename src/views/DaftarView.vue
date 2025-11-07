@@ -36,7 +36,6 @@
 
 <style scoped>
 body {
-  background-image: url('/background.png');
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
@@ -80,7 +79,7 @@ body {
 }
 
 .cat-img {
-  width: 400px;
+  width: 230px;
 }
 
 /* Kanan */
@@ -153,5 +152,66 @@ body {
   font-size: 0.9rem;
   color: #000;
   text-decoration: none;
+}
+
+/* RESPONSIVE AREA */
+@media (max-width: 1024px) {
+  .register-container {
+    width: 90%;
+    height: auto;
+  }
+
+  .left-side {
+    padding: 20px;
+  }
+
+  .cat-img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    background-image: url('/cat.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .left-side {
+    display: none; /* Hilangkan sisi kiri di HP */
+  }
+
+  .right-side {
+    flex: none;
+    width: 90%;
+    padding: 40px 30px;
+    background-color: rgba(255, 255, 233, 0.9); /* agar teks tetap terbaca */
+    border-radius: 24px;
+  }
+
+  .right-side h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .right-side {
+    padding: 30px 20px;
+  }
+
+  .register-form input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .register-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }
 </style>

@@ -144,14 +144,14 @@ function closePopup() {
 <style scoped>
 .donasi-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   padding: 100px;
   padding-top: 60px;
   color: white;
   min-height: 90vh;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 150px;
 }
 
 /* -----------------------------
